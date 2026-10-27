@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#681f2a">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <title>Tüm Eserler — Selim Sahaf</title>
+</head>
+<body data-page="tum-eserler">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-head">
+      <div class="wrap">
+        <div class="breadcrumb"><a href="index.html">Anasayfa</a><span>/</span>Tüm Eserler</div>
+        <h1>Tüm Eserler</h1>
+        <p class="lead">Koleksiyonumuzdaki tüm eserler. Fiyatı belirtilmeyen eserler için bizimle iletişime geçebilirsiniz.</p>
+        <div class="cat-pills" id="kat-pills"></div>
+      </div>
+    </section>
+
+    <section class="wrap" style="padding-bottom: clamp(64px, 9vw, 120px)">
+      <div class="toolbar">
+        <span id="kat-sayi"></span>
+        <label>
+          <span class="eyebrow" style="margin-right:10px">Sırala</span>
+          <select id="siralama" aria-label="Sıralama">
+            <option value="onerilen">Önerilen</option>
+            <option value="fiyat-artan">Fiyat: Düşükten yükseğe</option>
+            <option value="fiyat-azalan">Fiyat: Yüksekten düşüğe</option>
+            <option value="ad">Ada göre (A–Z)</option>
+          </select>
+        </label>
+      </div>
+      <div class="item-grid" id="eser-grid"></div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js?v=3"></script>
+  <script src="assets/js/main.js?v=3"></script>
+</body>
+</html>

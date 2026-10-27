@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#681f2a">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <title>İletişim — Selim Sahaf</title>
+</head>
+<body data-page="iletisim">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-head">
+      <div class="wrap">
+        <div class="breadcrumb"><a href="index.html">Anasayfa</a><span>/</span>İletişim</div>
+        <h1>İletişim</h1>
+        <p class="lead">Bir eser hakkında bilgi almak, koleksiyonunuzu değerlendirmek ya da dükkânımızı ziyaret etmek için bize ulaşın.</p>
+      </div>
+    </section>
+
+    <section class="section" id="satis">
+      <div class="wrap two-col">
+        <div>
+          <ul class="contact-list" id="iletisim-listesi"></ul>
+        </div>
+        <div>
+          <span class="eyebrow">Mesaj Gönderin</span>
+          <h2 style="font-size: clamp(30px,3.4vw,42px); margin: 10px 0 28px">Eser satışı, ekspertiz ve sorularınız için</h2>
+          <form id="iletisim-formu" class="form-grid">
+            <div class="field"><label for="ad">Ad Soyad</label><input id="ad" name="ad" required></div>
+            <div class="field"><label for="telefon">Telefon</label><input id="telefon" name="telefon" type="tel"></div>
+            <div class="field full"><label for="eposta">E-posta</label><input id="eposta" name="eposta" type="email" required></div>
+            <div class="field full"><label for="konu">Konu</label><select id="konu" name="konu"></select></div>
+            <div class="field full"><label for="mesaj">Mesajınız</label><textarea id="mesaj" name="mesaj" required placeholder="Eserinizi satmak istiyorsanız; dönemi, ölçüleri ve durumu hakkında kısa bilgi verin. Fotoğrafları e-posta ya da WhatsApp ile iletebilirsiniz."></textarea></div>
+            <div class="full"><button class="btn" type="submit">Gönder</button>
+              <p class="form-note">Gönder'e bastığınızda e-posta uygulamanız mesajınız hazır şekilde açılır.</p></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="assets/js/data.js?v=3"></script>
+  <script src="assets/js/main.js?v=3"></script>
+</body>
+</html>
