@@ -124,7 +124,7 @@ function altBilgiOlustur() {
             <a href="index.html" class="logo">
               <img src="assets/img/logo/logo-acik.png" alt="${esc(SITE.ad)}">
             </a>
-            <p>Nadir kitaplardan gravürlere, haritalardan antika objelere; her eseri özenle inceleyip belgeleyerek koleksiyonerlerle buluşturuyoruz.</p>
+            <p>Sultanahmet'te, Four Seasons Hotel Sultanahmet'in içinde; gravürler, tarihî haritalar ve figürlerle geçmişin hikâyelerini anlatmaya devam ediyoruz.</p>
           </div>
           <div>
             <h4>Koleksiyon</h4>
@@ -375,7 +375,7 @@ function iletisimSayfasi() {
 
 function hakkimizdaSayfasi() {
   iskeletOlustur();
-  $("#hakkimizda-gorsel").innerHTML = gorsel(null, kategoriBul("kutuphanemiz"));
+  $("#hakkimizda-gorsel").innerHTML = gorsel(null, { ad: "Sultanahmet'te bir merak evi" });
 }
 
 /* ---------- Başlat ---------- */
