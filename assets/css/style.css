@@ -709,6 +709,9 @@ h1, h2, h3, h4 {
 
 .detail-gallery .main .ph { aspect-ratio: 1 / 1; }
 
+/* Kare olmayan görseller (ör. oda görünümü) kırpılmadan görünsün */
+.detail-gallery .ph img { object-fit: contain; }
+
 .thumbs {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

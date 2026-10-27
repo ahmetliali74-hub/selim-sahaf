@@ -120,8 +120,20 @@ def obje_hazirla(foto: Image.Image, oturum, doldur: bool = False) -> Image.Image
     return tuval
 
 
+def kenar_kirp(foto: Image.Image, esik: int = 28) -> Image.Image:
+    """Fotoğrafın etrafındaki düz renkli boşluğu (duvar, fon) kırpar; köşe rengini fon kabul eder."""
+    k = 8
+    kose = [foto.getpixel(p) for p in ((k, k), (foto.width - k, k), (k, foto.height - k), (foto.width - k, foto.height - k))]
+    fon = tuple(sorted(c[i] for c in kose)[1] for i in range(3))
+    fark = ImageChops.difference(foto, Image.new("RGB", foto.size, fon)).convert("L")
+    kutu = fark.point(lambda v: 255 if v > esik else 0).filter(ImageFilter.MedianFilter(5)).getbbox()
+    if not kutu or (kutu[2] - kutu[0]) * (kutu[3] - kutu[1]) < foto.width * foto.height * 0.3:
+        return foto  # güvenli değilse dokunma
+    return foto.crop(kutu)
+
+
 def duz_hazirla(foto: Image.Image) -> Image.Image:
-    foto = foto.convert("RGB")
+    foto = kenar_kirp(foto.convert("RGB"))
     olcek = min(BOYUT * 0.80 / foto.width, BOYUT * 0.80 / foto.height)
     foto = foto.resize((int(foto.width * olcek), int(foto.height * olcek)), Image.LANCZOS)
     w, h = foto.size

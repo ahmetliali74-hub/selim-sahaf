@@ -86,6 +86,22 @@ const KATEGORILER = [
 const ESERLER = [
   // --- Gerçek eserler ---
   {
+    id: "fatih-sultan-mehmet-at-uzerinde",
+    kategori: "tablo",
+    baslik: "At Üzerinde Fatih Sultan Mehmet",
+    sanatci: "",
+    donem: "",
+    teknik: "Çerçeveli resim, altın tuğra ve hat detaylı",
+    olcu: "",
+    fiyat: null,
+    onecikan: true,
+    aciklama: "Fatih Sultan Mehmet'in at üzerinde, sorguçlu kavuğu ve kaftanıyla tasvir edildiği eser. Sol üst köşede altın renkli bir tuğra, arka planda kırmızı tonlarda hat yazıları yer alıyor; sağ alt köşede sanatçı imzası bulunuyor. İkinci görsel, eserin bir yaşam alanında nasıl durabileceğini gösteriyor.",
+    gorseller: [
+      "assets/img/eserler/fatih-sultan-mehmet-at-uzerinde-1.jpg",
+      "assets/img/eserler/fatih-sultan-mehmet-at-uzerinde-2.jpg",
+    ],
+  },
+  {
     id: "ayasofya-tutun-yapragi",
     kategori: "tablo",
     baslik: "Tütün Yaprağı Üzerine Ayasofya",
