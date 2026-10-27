@@ -865,6 +865,25 @@ h1, h2, h3, h4 {
 
 .contact-list a:hover { color: var(--accent); }
 
+.contact-note {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--gold-deep);
+  letter-spacing: 0.04em;
+}
+
+.map-wrap {
+  border-top: 1px solid var(--line);
+  line-height: 0;
+}
+
+.map-wrap iframe {
+  width: 100%;
+  height: clamp(320px, 45vw, 480px);
+  border: 0;
+  filter: grayscale(.35) sepia(.15);
+}
+
 /* ---------- Bülten ---------- */
 
 .newsletter {

@@ -8,11 +8,13 @@
 const SITE = {
   ad: "Selim Sahaf",
   slogan: "Sahaf & Curiosity House",
-  telefon: "+90 5XX XXX XX XX",
-  whatsapp: "905XXXXXXXXX", // başında + olmadan, ülke koduyla
+  telefon: "", // ör. "+90 532 123 45 67" — boşken sitede gösterilmez
+  whatsapp: "", // ör. "905321234567" (başında + olmadan) — boşken WhatsApp butonları gizlenir
   eposta: "selimsahaf@gmail.com",
-  adres: "Adres bilgisi buraya — İstanbul",
-  calismaSaatleri: "Pazartesi – Cumartesi · 10:00 – 19:00",
+  adres: "Sultanahmet, Tevkifhane Sk. No:1, 34122 Fatih/İstanbul",
+  adresNot: "Four Seasons Hotel Sultanahmet içerisinde",
+  haritaSorgu: "Four Seasons Hotel Istanbul at Sultanahmet",
+  calismaSaatleri: "Her gün · 09:30 – 21:00",
   instagram: "https://www.instagram.com/selimsahaf",
 };
 
