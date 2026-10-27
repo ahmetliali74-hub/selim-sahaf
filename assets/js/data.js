@@ -10,7 +10,7 @@ const SITE = {
   slogan: "Sahaf & Curiosity House",
   telefon: "+90 5XX XXX XX XX",
   whatsapp: "905XXXXXXXXX", // başında + olmadan, ülke koduyla
-  eposta: "info@selimsahaf.com",
+  eposta: "selimsahaf@gmail.com",
   adres: "Adres bilgisi buraya — İstanbul",
   calismaSaatleri: "Pazartesi – Cumartesi · 10:00 – 19:00",
   instagram: "https://instagram.com/",
