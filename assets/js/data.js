@@ -84,6 +84,24 @@ const KATEGORILER = [
   gorseller   — ["assets/img/eserler/dosya.jpg", ...] (boşsa zarif yer tutucu görünür)
 */
 const ESERLER = [
+  // --- Gerçek eserler ---
+  {
+    id: "ayasofya-tutun-yapragi",
+    kategori: "tablo",
+    baslik: "Tütün Yaprağı Üzerine Ayasofya",
+    sanatci: "",
+    donem: "",
+    teknik: "Kurutulmuş tütün yaprağı üzerine elle boyama, camlı ve çerçeveli",
+    olcu: "",
+    fiyat: null,
+    onecikan: true,
+    aciklama: "Kurutulmuş bir tütün yaprağı üzerine elle boyanmış Ayasofya tasviri. Yaprağın üst kısmında Rumca bir yazı, alt kısmındaki şeritte \"Hagia Sophia\" yazısı ve 1453 tarihi yer alıyor. Eser, altın renkli çerçevesi ve camıyla birlikte sunulmaktadır.",
+    gorseller: [
+      "assets/img/eserler/ayasofya-tutun-yapragi-1.jpg",
+      "assets/img/eserler/ayasofya-tutun-yapragi-2.jpg",
+    ],
+  },
+
   // --- Gravür ---
   {
     id: "konstantinopolis-panorama-gravur",

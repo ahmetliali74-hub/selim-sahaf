@@ -180,7 +180,7 @@ function iskeletOlustur(aktif) {
 function anasayfa() {
   iskeletOlustur();
 
-  const vitrin = eserBul("viyana-bronzu-genc") || ESERLER[0];
+  const vitrin = eserBul("ayasofya-tutun-yapragi") || ESERLER[0];
   $("#hero-visual").innerHTML = `
     <a href="eser.html?id=${encodeURIComponent(vitrin.id)}">
       ${gorsel(vitrin)}
