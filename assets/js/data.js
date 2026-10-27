@@ -13,7 +13,7 @@ const SITE = {
   eposta: "selimsahaf@gmail.com",
   adres: "Adres bilgisi buraya — İstanbul",
   calismaSaatleri: "Pazartesi – Cumartesi · 10:00 – 19:00",
-  instagram: "https://instagram.com/",
+  instagram: "https://www.instagram.com/selimsahaf",
 };
 
 const KATEGORILER = [
