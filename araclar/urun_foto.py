@@ -8,7 +8,9 @@ Selim Sahaf — ürün fotoğrafı hazırlama aracı
           (gravür, harita, tablo, belge vb.)
 
 Kullanım:
-  ~/.selim-sahaf/venv/bin/python araclar/urun_foto.py FOTO [FOTO ...] --ad eser-adi [--mod obje|duz]
+  ~/.selim-sahaf/venv/bin/python araclar/urun_foto.py FOTO [FOTO ...] --ad eser-adi [--mod obje|duz] [--doldur]
+
+  --doldur: çerçeveli eserlerde camın arkasındaki koyu fonun silinmesini önler
 
 Çıktılar assets/img/eserler/ klasörüne eser-adi-1.jpg, eser-adi-2.jpg ... olarak yazılır.
 """
@@ -17,7 +19,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter, ImageOps
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageOps
 
 try:
     import pillow_heif
@@ -68,10 +70,26 @@ def gölge_ekle(tuval: Image.Image, maske: Image.Image, konum, yogunluk: float, 
     return Image.composite(karanlik, tuval, katman)
 
 
-def obje_hazirla(foto: Image.Image, oturum) -> Image.Image:
+def ic_bosluklar(alfa: Image.Image) -> Image.Image:
+    """Ürünün içinde kalan, dışarıyla bağlantısı olmayan boşlukların maskesi
+    (ör. çerçevenin içindeki koyu fon)."""
+    k = 4  # hız için küçültülmüş maske üzerinde çalış
+    kucuk = alfa.resize((alfa.width // k, alfa.height // k)).point(lambda v: 255 if v > 40 else 0)
+    cerceveli = Image.new("L", (kucuk.width + 2, kucuk.height + 2), 0)
+    cerceveli.paste(kucuk, (1, 1))
+    ImageDraw.floodfill(cerceveli, (0, 0), 128)  # dışarıdan ulaşılabilen arka plan
+    delikler = cerceveli.crop((1, 1, kucuk.width + 1, kucuk.height + 1)).point(lambda v: 255 if v == 0 else 0)
+    return delikler.resize(alfa.size, Image.BILINEAR).filter(ImageFilter.GaussianBlur(1.5))
+
+
+def obje_hazirla(foto: Image.Image, oturum, doldur: bool = False) -> Image.Image:
     from rembg import remove
 
     kesik = remove(foto, session=oturum, post_process_mask=True)
+    if doldur:
+        alfa = ImageChops.lighter(kesik.getchannel("A"), ic_bosluklar(kesik.getchannel("A")))
+        kesik = foto.convert("RGB").convert("RGBA")
+        kesik.putalpha(alfa)
     kutu = kesik.getchannel("A").point(lambda v: 255 if v > 12 else 0).getbbox()
     if not kutu:
         sys.exit("Fotoğrafta ürün bulunamadı.")
@@ -122,6 +140,7 @@ def main():
     p.add_argument("fotolar", nargs="+", type=Path)
     p.add_argument("--ad", required=True, help="dosya adı, ör. viyana-bronzu-genc")
     p.add_argument("--mod", choices=["obje", "duz"], default="obje")
+    p.add_argument("--doldur", action="store_true", help="ürünün içindeki kapalı boşlukları koru (çerçeveli eserler için)")
     p.add_argument("--cikti", type=Path, default=CIKTI)
     a = p.parse_args()
 
@@ -134,7 +153,7 @@ def main():
 
     for i, yol in enumerate(a.fotolar, 1):
         foto = ImageOps.exif_transpose(Image.open(yol))
-        sonuc = obje_hazirla(foto.convert("RGBA"), oturum) if a.mod == "obje" else duz_hazirla(foto)
+        sonuc = obje_hazirla(foto.convert("RGBA"), oturum, a.doldur) if a.mod == "obje" else duz_hazirla(foto)
         hedef = a.cikti / f"{a.ad}-{i}.jpg"
         sonuc.convert("RGB").save(hedef, "JPEG", quality=86, optimize=True, progressive=True)
         print(f"assets/img/eserler/{hedef.name}" if a.cikti == CIKTI else hedef)
