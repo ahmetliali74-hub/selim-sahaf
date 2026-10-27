@@ -46,3 +46,16 @@ python3 -m http.server 4173
 ```
 
 Ardından tarayıcıda `http://localhost:4173` adresini açın.
+
+## Ürün fotoğrafı hazırlama
+
+`araclar/urun_foto.py` fotoğrafı site için stüdyo görünümüne getirir ve `assets/img/eserler/` klasörüne yazar.
+
+- `--mod obje` (varsayılan): arka planı kaldırır, ürünü gölgesiyle stüdyo zeminine oturtur. Figür, takı, parfüm şişesi için.
+- `--mod duz`: arka planı korur, eseri duvara asılı gibi gölgeyle yerleştirir. Gravür, harita, tablo için.
+
+```bash
+~/.selim-sahaf/venv/bin/python araclar/urun_foto.py ~/Downloads/foto1.jpg ~/Downloads/foto2.jpg --ad viyana-bronzu-genc
+```
+
+Ortam `~/.selim-sahaf/venv` içinde kurulu (Python 3.12, rembg, Pillow, pillow-heif). Yapay zekâ modeli `~/.rembg/models/` altında.
